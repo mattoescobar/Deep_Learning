@@ -1,0 +1,29 @@
+# Comparison ANN and RNN performances using a ROC curve
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Load ann and rnn roc related data
+ann_data = np.load('ann_roc.npz')
+ann_fpr = ann_data['arr_0']
+ann_tpr = ann_data['arr_1']
+ann_roc = ann_data['arr_2']
+rnn_data = np.load('rnn_roc.npz')
+rnn_fpr = rnn_data['arr_0']
+rnn_tpr = rnn_data['arr_1']
+rnn_roc = rnn_data['arr_2']
+
+# Plot ROC curves for both ann and rnn performances
+tep_idx = [1, 2, 5, 8, 9, 13]
+for i in range(0, 6):
+    plt.title('Receiver Operating Characteristic')
+    plt.plot(ann_fpr[i], ann_tpr[i], 'b', label = 'AUC_ANN = %0.2f' % ann_roc[i])
+    plt.plot(rnn_fpr[i], rnn_tpr[i], 'r', label='AUC_RNN = %0.2f' % rnn_roc[i])
+    plt.legend(loc = 'lower right')
+    plt.plot([0, 1], [0, 1],'g--')
+    plt.xlim([0, 1])
+    plt.ylim([0, 1])
+    plt.ylabel('True Positive Rate')
+    plt.xlabel('False Positive Rate')
+    plt.show()
+    plt.savefig('roc' + str(tep_idx[i]) + '.png')
+
