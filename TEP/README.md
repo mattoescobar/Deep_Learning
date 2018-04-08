@@ -6,7 +6,7 @@ ANN and RNN applied to the Tennessee Eastman Process (TEP) dataset. More details
 * Keras API
 
 ## Usage
-### Comparison between ANN and RNN - roc_ann_rnn.py
+### Comparison between ANN and RNN's fault detection performance - roc_ann_rnn.py
 ```python
 # Comparison of ANN and RNN performances using a ROC curve
 import numpy as np
