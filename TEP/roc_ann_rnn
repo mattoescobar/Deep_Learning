@@ -1,4 +1,4 @@
-# Comparison ANN and RNN performances using a ROC curve
+# Comparison of ANN and RNN performances using a ROC curve
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -12,7 +12,7 @@ rnn_fpr = rnn_data['arr_0']
 rnn_tpr = rnn_data['arr_1']
 rnn_roc = rnn_data['arr_2']
 
-# Plot ROC curves for both ann and rnn performances
+# Plot ROC curves for both ann and rnn fault detection tasks
 tep_idx = [1, 2, 5, 8, 9, 13]
 for i in range(0, 6):
     plt.title('Receiver Operating Characteristic')
